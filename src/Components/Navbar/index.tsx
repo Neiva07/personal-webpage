@@ -1,18 +1,13 @@
 import React from "react";
-//@ts-ignore
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import styled from "styled-components";
 
-const NavLink = styled(AnchorLink);
+const NavLink = styled(AnchorLink)``;
 
 const index = () => {
   return (
     <div>
-      <nav
-        className="navbar"
-        role="navigation"
-        aria-eact-anchorlabel="main navigation"
-      >
+      <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <a className="navbar-item" href="https://bulma.io">
             <img
@@ -40,9 +35,15 @@ const index = () => {
             <NavLink href="#about" className="navbar-item">
               About
             </NavLink>
-            <NavLink className="navbar-item">Experience</NavLink>
-            <NavLink className="navbar-item">Projects</NavLink>
-            <NavLink className="navbar-item">Contact</NavLink>
+            <NavLink href="#experience" className="navbar-item">
+              Experience
+            </NavLink>
+            <NavLink href="#projects" className="navbar-item">
+              Projects
+            </NavLink>
+            <NavLink href="#contact" className="navbar-item">
+              Contact
+            </NavLink>
           </div>
         </div>
       </nav>
