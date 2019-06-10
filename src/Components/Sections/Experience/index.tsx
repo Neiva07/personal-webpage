@@ -97,9 +97,9 @@ const JobDetails = styled.h5`
   letter-spacing: 0.5px;
 `;
 
-const index = ({ nodes }: JobsProps) => {
-  //   const [activeTabId, setActiveTabId] = useState(0);
-
+const Index = (props: JobsProps) => {
+  const [activeTabId, setActiveTabId] = useState(0);
+  const { nodes } = props;
   return (
     <ExperienceContainer id="experience" className="container">
       <Heading>{experience.title}</Heading>
@@ -110,13 +110,13 @@ const index = ({ nodes }: JobsProps) => {
             return (
               <Tab
                 key={i}
-                isActive={i === 0}
-                // onClick={() => setActiveTabId(i)}
+                isActive={i === activeTabId}
+                onClick={() => setActiveTabId(i)}
                 role="tab"
-                // aria-selected={activeTabId === i ? "true" : "false"}
+                aria-selected={activeTabId === i ? "true" : "false"}
                 aria-controls={`tab${i}`}
                 id={`tab${i}`}
-                // tabIndex={activeTabId === i ? 0 : -1}
+                tabIndex={activeTabId === i ? 0 : -1}
               >
                 <span>{company}</span>
               </Tab>
@@ -130,12 +130,12 @@ const index = ({ nodes }: JobsProps) => {
             return (
               <TabContent
                 key={i}
-                isActive={i === 0}
+                isActive={i === activeTabId}
                 id={`job${i}`}
                 role="tabpanel"
                 tabIndex={0}
                 aria-labelledby={`job${i}`}
-                aria-hidden={i !== 0}
+                aria-hidden={i !== activeTabId}
               >
                 <JobTitle>
                   <span>{title}</span>
@@ -155,7 +155,7 @@ const index = ({ nodes }: JobsProps) => {
                 </JobDetails>
                 <ul>
                   {descriptions.map((desc, i) => {
-                    <li key={i}>{desc}</li>;
+                    return <li key={i}>{desc}</li>;
                   })}
                 </ul>
               </TabContent>
@@ -167,4 +167,4 @@ const index = ({ nodes }: JobsProps) => {
   );
 };
 
-export default index;
+export default Index;
