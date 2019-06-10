@@ -11,4 +11,3 @@ export const techSkills = [
   "HTML & CSS",
   "React-Native"
 ];
-export const title = "About me.";

@@ -2,12 +2,10 @@ import React from "react";
 import * as about from "../../../Content/about";
 import avatar from "../../../assets/images/me.png";
 import styled from "styled-components";
-import { Section, Heading } from "../../../Styles";
+import Section from "../../../Styles/Sections";
 
 const index = () => {
-  const AboutContainer = styled(Section)`
-    position: relative;
-  `;
+  const AboutContainer = styled(Section)``;
 
   const AboutText = styled.p`
     max-width: 400px;
@@ -50,7 +48,6 @@ const index = () => {
 
   return (
     <AboutContainer id="about" className="container">
-      <Heading>{about.title}</Heading>
       <div className="is-mobile level">
         <TextContainer className="level-item">
           <ContentContainer>
