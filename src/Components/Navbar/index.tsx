@@ -2,11 +2,14 @@ import React from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import styled from "styled-components";
 
-const NavLink = styled(AnchorLink)``;
-
 const index = () => {
+  const NavLink = styled(AnchorLink)``;
+  const NavbarContainer = styled.div`
+    /* position: fixed; */
+    /* top: 0; */
+  `;
   return (
-    <div>
+    <NavbarContainer>
       <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <a className="navbar-item" href="https://bulma.io">
@@ -47,7 +50,7 @@ const index = () => {
           </div>
         </div>
       </nav>
-    </div>
+    </NavbarContainer>
   );
 };
 
