@@ -3,6 +3,7 @@ import { Section, Heading } from "../../../Styles";
 import styled from "styled-components";
 import GithubIcon from "../../Icons/Github";
 import LinkIcon from "../../Icons/Link";
+import FolderIcon from "../../Icons/Folder";
 
 type Project = {
   title: string;
@@ -27,14 +28,12 @@ const ProjectsContainer = styled(Section)`
   position: relative;
 `;
 
-const IconContainer = styled.figure``;
-
-const IconLink = styled.a`
+const IconLink = styled.a.attrs(() => ({
+  target: "_blank"
+}))`
   position: relative;
-  svg {
-    width: 20px;
-    height: 20px;
-  }
+  margin-left: 12px;
+  float: right;
 `;
 
 const ProjectsGrid = styled.div`
@@ -49,9 +48,7 @@ const ProjectContent = styled.p`
 `;
 
 const LinkContainer = styled.div`
-  right: 0;
-
-  display: inline-block;
+  /* display: inline-block; */
 `;
 
 const TechList = styled.ul`
@@ -82,15 +79,17 @@ const Index = (props: Props) => {
             const { github, link, techStack, title, description } = project;
             return (
               <BoxContainer>
-                <IconContainer>icon</IconContainer>
                 <LinkContainer>
+                  <span>
+                    <FolderIcon />
+                  </span>
                   {github && (
-                    <IconLink href={github.href} className="icon">
+                    <IconLink href={github.href}>
                       <GithubIcon />
                     </IconLink>
                   )}
                   {link && (
-                    <IconLink href={link.href} className="icon">
+                    <IconLink href={link.href}>
                       <LinkIcon />
                     </IconLink>
                   )}

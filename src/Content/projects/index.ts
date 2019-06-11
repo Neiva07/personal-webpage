@@ -21,7 +21,8 @@ export const projects = [
     description:
       "A easy to use Web App that share folders through a file system and allow collaborative work on a project. Supports a text editor and a Terminal to full development experience",
     github: new URL("https://github.com/Neiva07/coding-along"),
-    techStack: ["React.js", "Node", "MongoDB", "TypeScript"]
+    techStack: ["React.js", "Node", "MongoDB", "TypeScript"],
+    link: new URL("https://github.com") //test purpose
   },
   {
     title: "Star Wars Encyclopedia",
