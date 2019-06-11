@@ -10,7 +10,7 @@ export const nodes = [
       descriptions: [
         "Developed and shipped clients of several internal web apps to data analysis and company control of the drivers of the app.",
         "Built high performance backend APIs to serve clients of various applications using REST architecture.",
-        "Worked on the UI of moobi-pack, a delivery system which use the Google Maps API to manage the path of the rider take."
+        "Worked on the UI of moobi-pack, a delivery system which uses the Google Maps API to manage the rider path took to the destination."
       ]
     }
   },

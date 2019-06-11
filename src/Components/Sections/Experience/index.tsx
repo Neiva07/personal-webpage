@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Section, Heading } from "../../../Styles";
-import styled, { ThemedStyledProps } from "styled-components";
+import styled from "styled-components";
 import * as experience from "../../../Content/experience";
 
 type JobsProps = {
