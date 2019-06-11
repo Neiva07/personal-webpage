@@ -3,11 +3,9 @@ import React from "react";
 const Github = () => {
   return (
     <div>
-      <a aria-label="reply">
-        <span className="icon is-small">
-          <i className="fas fa-github" aria-hidden="true" />
-        </span>
-      </a>
+      <span className="icon">
+        <i className="fas fa-github-circle" aria-hidden="true" />
+      </span>
     </div>
   );
 };

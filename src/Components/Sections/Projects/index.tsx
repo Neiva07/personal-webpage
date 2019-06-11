@@ -18,9 +18,9 @@ type Props = {
   projects: Project[];
 };
 
-const CardContainer = styled.div`
+const BoxContainer = styled.div`
   position: relative;
-  align-items: center;
+  padding: 20px 16px;
 `;
 
 const ProjectsContainer = styled(Section)`
@@ -37,31 +37,77 @@ const IconLink = styled.a`
   }
 `;
 
+const ProjectsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  grid-gap: 15px;
+  position: relative;
+`;
+
+const ProjectContent = styled.p`
+  text-align: justify;
+`;
+
+const LinkContainer = styled.div`
+  right: 0;
+
+  display: inline-block;
+`;
+
+const TechList = styled.ul`
+  align-items: flex-end;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+  li {
+    line-height: 1.75;
+    margin-right: 15px;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+`;
+
 const Index = (props: Props) => {
   const { title, projects } = props;
   return (
-    <ProjectsContainer>
+    <ProjectsContainer id="projects">
       <Heading>{title}</Heading>
+      <ProjectsGrid>
+        {projects &&
+          projects.map(project => {
+            const { github, link, techStack, title, description } = project;
+            return (
+              <BoxContainer>
+                <IconContainer>icon</IconContainer>
+                <LinkContainer>
+                  {github && (
+                    <IconLink href={github.href} className="icon">
+                      <GithubIcon />
+                    </IconLink>
+                  )}
+                  {link && (
+                    <IconLink href={link.href} className="icon">
+                      <LinkIcon />
+                    </IconLink>
+                  )}
+                </LinkContainer>
 
-      {projects &&
-        projects.map(project => {
-          const { github, link, techStack, title, description } = project;
-          return (
-            <CardContainer className="box">
-              <IconContainer className="media-left">icon</IconContainer>
-              {github && (
-                <IconLink href={github.href} className="media-right">
-                  <GithubIcon />
-                </IconLink>
-              )}
-              {link && (
-                <IconLink href={link.href} className="media-right">
-                  <LinkIcon />
-                </IconLink>
-              )}
-            </CardContainer>
-          );
-        })}
+                <ProjectContent>{description}</ProjectContent>
+                <footer>
+                  <TechList>
+                    {techStack.map(tech => {
+                      return <li>{tech}</li>;
+                    })}
+                  </TechList>
+                </footer>
+              </BoxContainer>
+            );
+          })}
+      </ProjectsGrid>
     </ProjectsContainer>
   );
 };
