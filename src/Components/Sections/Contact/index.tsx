@@ -10,6 +10,7 @@ type Props = {
   links: {
     [ind: string]: URL;
   };
+  email: string;
 };
 
 const ContactContainer = styled(Section)`
@@ -46,8 +47,10 @@ const LinkIcon = styled.a.attrs({ target: "_blank" })`
   margin: 10px 10px;
 `;
 
+const EmailContainer = styled.h6``;
+
 const Index = (props: Props) => {
-  const { title, message, links } = props;
+  const { title, message, links, email } = props;
 
   return (
     <ContactContainer id="contact">
@@ -63,6 +66,8 @@ const Index = (props: Props) => {
           <LinkedinIcon />
         </LinkIcon>
       </IconContainer>
+
+      <EmailContainer>{email}</EmailContainer>
     </ContactContainer>
   );
 };

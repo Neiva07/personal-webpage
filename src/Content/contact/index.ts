@@ -7,3 +7,5 @@ export const links = {
   linkedin: new URL("https://www.linkedin.com/in/lucas-neiva-767333142/"),
   github: new URL("https://www.github.com/Neiva07")
 };
+
+export const email = "lucasneiva07@gmail.com";
