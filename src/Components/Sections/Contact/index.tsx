@@ -1,10 +1,15 @@
 import React from "react";
 import { Section, Heading } from "../../../Styles/index";
 import styled from "styled-components";
+import GithubIcon from "../../Icons/Github";
+import LinkedinIcon from "../../Icons/Linkedin";
 
 type Props = {
   title: string;
   message: string;
+  links: {
+    [ind: string]: URL;
+  };
 };
 
 const ContactContainer = styled(Section)`
@@ -27,8 +32,22 @@ const Button = styled.button`
   margin: 48px auto 0;
 `;
 
+const IconContainer = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+`;
+
+const LinkIcon = styled.a.attrs({ target: "_blank" })`
+  svg {
+    width: 36px;
+    height: 36px;
+  }
+  margin: 10px 10px;
+`;
+
 const Index = (props: Props) => {
-  const { title, message } = props;
+  const { title, message, links } = props;
 
   return (
     <ContactContainer id="contact">
@@ -36,6 +55,14 @@ const Index = (props: Props) => {
       <Message>Get In Touch</Message>
 
       <Text>{message}</Text>
+      <IconContainer>
+        <LinkIcon href={links.github.href}>
+          <GithubIcon />
+        </LinkIcon>
+        <LinkIcon href={links.linkedin.href}>
+          <LinkedinIcon />
+        </LinkIcon>
+      </IconContainer>
     </ContactContainer>
   );
 };
