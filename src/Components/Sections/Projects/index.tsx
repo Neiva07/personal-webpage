@@ -78,6 +78,8 @@ const Button = styled.button`
   margin: 100px auto 0;
 `;
 
+const Title = styled.h4``;
+
 const Index = (props: Props) => {
   const { title, projects } = props;
 
@@ -115,6 +117,8 @@ const Index = (props: Props) => {
                     </IconLink>
                   )}
                 </LinkContainer>
+
+                <Title>{title}</Title>
 
                 <ProjectContent>{description}</ProjectContent>
                 <footer>
