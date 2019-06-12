@@ -79,16 +79,15 @@ const Button = styled.button`
 `;
 
 const Index = (props: Props) => {
-  const [numProjects, setNumProjects] = useState(NUMPERPAGE);
-
   const { title, projects } = props;
 
-  const projectsToShow = useMemo(() => projects.slice(0, numProjects), [
-    numProjects
-  ]);
+  const [projectsToShow, setProjectsToShow] = useState(() =>
+    projects.length > 4 ? projects.slice(0, 4) : projects
+  );
 
-  const addProjects = useCallback(
-    () => setNumProjects(prevNum => prevNum + NUMPERPAGE),
+  const moreProjects = useCallback(() => setProjectsToShow(projects), []);
+  const fewerProjects = useCallback(
+    () => setProjectsToShow(projects.slice(0, 4)),
     []
   );
 
@@ -130,7 +129,12 @@ const Index = (props: Props) => {
           })}
       </ProjectsGrid>
 
-      <Button onClick={addProjects}>More Projects</Button>
+      {projects.length > 4 && projectsToShow.length === 4 && (
+        <Button onClick={moreProjects}>More Projects</Button>
+      )}
+      {projectsToShow.length > 4 && (
+        <Button onClick={fewerProjects}>Fewer Projects</Button>
+      )}
     </ProjectsContainer>
   );
 };

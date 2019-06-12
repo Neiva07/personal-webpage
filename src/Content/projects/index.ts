@@ -30,5 +30,26 @@ export const projects = [
       "A simple client that search for a character from Star Wars Universe and shows information and follow searches about Star Wars Universe",
     techStack: ["React.js", "JavaScript", "Material UI"],
     github: new URL("https://github.com/Neiva07/star-wars-encyclopedia")
+  },
+  {
+    title: "Star Wars Encyclopedia",
+    description:
+      "A simple client that search for a character from Star Wars Universe and shows information and follow searches about Star Wars Universe",
+    techStack: ["React.js", "JavaScript", "Material UI"],
+    github: new URL("https://github.com/Neiva07/star-wars-encyclopedia")
+  },
+  {
+    title: "Star Wars Encyclopedia",
+    description:
+      "A simple client that search for a character from Star Wars Universe and shows information and follow searches about Star Wars Universe",
+    techStack: ["React.js", "JavaScript", "Material UI"],
+    github: new URL("https://github.com/Neiva07/star-wars-encyclopedia")
+  },
+  {
+    title: "Star Wars Encyclopedia",
+    description:
+      "A simple client that search for a character from Star Wars Universe and shows information and follow searches about Star Wars Universe",
+    techStack: ["React.js", "JavaScript", "Material UI"],
+    github: new URL("https://github.com/Neiva07/star-wars-encyclopedia")
   }
 ];
