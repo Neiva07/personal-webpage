@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { Section, Heading } from "../../../Styles";
 import styled from "styled-components";
 import GithubIcon from "../../Icons/Github";
 import LinkIcon from "../../Icons/Link";
 import FolderIcon from "../../Icons/Folder";
+const NUMPERPAGE = 4;
 
 type Project = {
   title: string;
@@ -26,6 +27,8 @@ const BoxContainer = styled.div`
 
 const ProjectsContainer = styled(Section)`
   position: relative;
+  flex-direction: column;
+  align-items: flex-start;
 `;
 
 const IconLink = styled.a.attrs(() => ({
@@ -67,15 +70,34 @@ const TechList = styled.ul`
     }
   }
 `;
+const Button = styled.button`
+  max-width: 100px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  margin: 100px auto 0;
+`;
 
 const Index = (props: Props) => {
+  const [numProjects, setNumProjects] = useState(NUMPERPAGE);
+
   const { title, projects } = props;
+
+  const projectsToShow = useMemo(() => projects.slice(0, numProjects), [
+    numProjects
+  ]);
+
+  const addProjects = useCallback(
+    () => setNumProjects(prevNum => prevNum + NUMPERPAGE),
+    []
+  );
+
   return (
     <ProjectsContainer id="projects">
       <Heading>{title}</Heading>
       <ProjectsGrid>
-        {projects &&
-          projects.map(project => {
+        {projectsToShow &&
+          projectsToShow.map(project => {
             const { github, link, techStack, title, description } = project;
             return (
               <BoxContainer>
@@ -107,6 +129,8 @@ const Index = (props: Props) => {
             );
           })}
       </ProjectsGrid>
+
+      <Button onClick={addProjects}>More Projects</Button>
     </ProjectsContainer>
   );
 };
