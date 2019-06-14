@@ -47,7 +47,7 @@ const LinkIcon = styled.a.attrs({ target: "_blank" })`
   margin: 10px 10px;
 `;
 
-const EmailContainer = styled.h6``;
+const EmailContainer = styled.h4``;
 
 const Index = (props: Props) => {
   const { title, message, links, email } = props;
